@@ -12,7 +12,7 @@ namespace ImageServer.Controllers
 {
     public class ImageController : Controller
     {
-        public ActionResult Index(int x,int y,int w,int h,int percentage=100)
+        public ActionResult Index(int x,int y,int w,int h,int tw=0,int th=0)
         {
             using (var absentRectangleImage = (Bitmap)Bitmap.FromFile(@"D:\wallpapers\july-10-photographydock-nocal-1920x1200.tif"))
             {
@@ -39,14 +39,29 @@ namespace ImageServer.Controllers
                         currentTileGraphics.DrawImage(absentRectangleImage, 0, 0, absentRectangleArea, GraphicsUnit.Pixel);
                     }
 
+                    if (th != 0 && tw != 0)
+                    {
+                        Image.GetThumbnailImageAbort myCallback = ThumbnailCallback;
+                        var thumb = currentTile.GetThumbnailImage(tw, th, myCallback, IntPtr.Zero);
+                        using (var memStream = new MemoryStream())
+                        {
+                            thumb.Save(memStream, ImageFormat.Jpeg);
+                            var bytes = memStream.ToArray();
+                            return File(bytes, "image/jpeg");
+                        }
+                    }
                     using (var memStream = new MemoryStream())
                     {
                         currentTile.Save(memStream, ImageFormat.Jpeg);
                         var bytes = memStream.ToArray();
-                        return base.File(bytes,"image/jpeg");
+                        return File(bytes,"image/jpeg");
                     }
                 }
             }           
+        }
+        public bool ThumbnailCallback()
+        {
+            return false;
         }
 
         public ActionResult Full(string format = "jpeg") 
