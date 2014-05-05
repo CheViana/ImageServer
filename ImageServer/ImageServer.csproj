@@ -124,11 +124,19 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bussiness\ColorEnum.cs" />
     <Compile Include="Bussiness\CroppingProcessor.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\IPercentageCrop.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\IPercentageScale.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\ISizeCrop.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\ISizeScale.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\SizeCropArgs.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\SizeCropPercentageScaleArgs.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\SizeCropSizeScaleArgs.cs" />
     <Compile Include="Bussiness\ScalingProcessor.cs" />
     <Compile Include="Bussiness\ColorProcessor.cs" />
     <Compile Include="Bussiness\FormatProcessor.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Bussiness\RotatedProcessor.cs" />
+    <Compile Include="Bussiness\ImageEventArgs\BaseImageArgs.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

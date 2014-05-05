@@ -4,6 +4,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Web.Mvc;
 using ImageServer.Bussiness;
+using ImageServer.Bussiness.ImageEventArgs;
 
 namespace ImageServer.Controllers
 {
@@ -37,6 +38,12 @@ namespace ImageServer.Controllers
                 return File(bytes, mime);
             }
         }
+
+        //public ActionResult Index(BaseImageArgs args)
+        //{
+            
+        //}
+
 
         public ActionResult SizeCropSizeScale(string id, int x, int y, int w, int h, int tw, int th, bool distorted = false, float rotated = 0, string color = "", string format = "jpg")
         {
