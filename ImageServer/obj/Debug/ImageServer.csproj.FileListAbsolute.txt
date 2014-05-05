@@ -81,6 +81,6 @@ D:\Projects\ImageServer\ImageServer\bin\System.Web.Razor.xml
 D:\Projects\ImageServer\ImageServer\bin\System.Web.WebPages.xml
 D:\Projects\ImageServer\ImageServer\bin\System.Web.WebPages.Deployment.xml
 D:\Projects\ImageServer\ImageServer\bin\System.Web.WebPages.Razor.xml
-D:\Projects\ImageServer\ImageServer\obj\Debug\ImageServer.csprojResolveAssemblyReference.cache
 D:\Projects\ImageServer\ImageServer\obj\Debug\ImageServer.dll
 D:\Projects\ImageServer\ImageServer\obj\Debug\ImageServer.pdb
+D:\Projects\ImageServer\ImageServer\obj\Debug\ImageServer.csprojResolveAssemblyReference.cache
