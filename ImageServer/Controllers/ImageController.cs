@@ -1,83 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
-
 using System.IO;
+using System.Web.Mvc;
+using ImageServer.Bussiness;
 
 namespace ImageServer.Controllers
 {
     public class ImageController : Controller
     {
-        public ActionResult Index(int x,int y,int w,int h,int tw=0,int th=0)
+        private readonly ImageProcessor processor = new ImageProcessor();
+        private readonly Image image = Image.FromFile(@"D:\wallpapers\july-10-photographydock-nocal-1920x1200.tif");
+
+        private ActionResult ImageActionResult(Image im)
         {
-            using (var absentRectangleImage = (Bitmap)Bitmap.FromFile(@"D:\wallpapers\july-10-photographydock-nocal-1920x1200.tif"))
+            using (var memStream = new MemoryStream())
             {
-                var imageHeigth = absentRectangleImage.Height;
-                var imageWidth = absentRectangleImage.Width;
-                var finalWidth = w;
-                var finalHeigth = h;
-                if (imageHeigth < y + h)
-                {
-                    finalHeigth = imageHeigth - y;
-                }
-                if (imageWidth < x + w)
-                {
-                    finalWidth = imageWidth - x;
-                }
-                using (var currentTile = new Bitmap(finalWidth, finalHeigth))
-                {
-                    currentTile.SetResolution(absentRectangleImage.HorizontalResolution, absentRectangleImage.VerticalResolution);
-
-                    using (var currentTileGraphics = Graphics.FromImage(currentTile))
-                    {
-                        currentTileGraphics.Clear(Color.Black);
-                        var absentRectangleArea = new Rectangle(x, y, w, h);
-                        currentTileGraphics.DrawImage(absentRectangleImage, 0, 0, absentRectangleArea, GraphicsUnit.Pixel);
-                    }
-
-                    if (th != 0 && tw != 0)
-                    {
-                        Image.GetThumbnailImageAbort myCallback = ThumbnailCallback;
-                        var thumb = currentTile.GetThumbnailImage(tw, th, myCallback, IntPtr.Zero);
-                        using (var memStream = new MemoryStream())
-                        {
-                            thumb.Save(memStream, ImageFormat.Jpeg);
-                            var bytes = memStream.ToArray();
-                            return File(bytes, "image/jpeg");
-                        }
-                    }
-                    using (var memStream = new MemoryStream())
-                    {
-                        currentTile.Save(memStream, ImageFormat.Jpeg);
-                        var bytes = memStream.ToArray();
-                        return File(bytes,"image/jpeg");
-                    }
-                }
-            }           
-        }
-        public bool ThumbnailCallback()
-        {
-            return false;
-        }
-
-        public ActionResult Full(string format = "jpeg") 
-        {
-            using (var absentRectangleImage =
-                    (Bitmap) Bitmap.FromFile(@"D:\wallpapers\july-10-photographydock-nocal-1920x1200.tif"))
-            {
-                using (var memStream = new MemoryStream())
-                {
-                    absentRectangleImage.Save(memStream, ImageFormat.Jpeg);
-                    var bytes = memStream.ToArray();
-                    return base.File(bytes, "image/"+format);
-                }
+                im.Save(memStream, ImageFormat.Jpeg);
+                var bytes = memStream.ToArray();
+                return base.File(bytes, "image/jpeg");
             }
         }
 
+        public ActionResult SizeCropSizeScale(string id, int x, int y, int w, int h, int tw, int th, bool distorted)
+        {
+            var cropped = processor.SizeCrop(image, x, y, w, h);
+            var scaledCropped = processor.SizeScaling(cropped, tw, th, distorted);
+            return ImageActionResult(scaledCropped);
+        }
+        public ActionResult SizeCropPercentageScale(string id, int x, int y, int w, int h, int p)
+        {
+            var cropped = processor.SizeCrop(image, x, y, w, h);
+            var scaledCropped = processor.PercentageScaling(cropped, p);
+            return ImageActionResult(scaledCropped);
+        }
+        public ActionResult PercentageCropSizeScale(string id, int px, int py, int pw, int ph, int tw, int th, bool distorted)
+        {
+           var cropped = processor.PercentageCrop(image, px, py, pw, ph);
+            var scaledCropped = processor.SizeScaling(cropped, tw, th, distorted);
+            return ImageActionResult(scaledCropped);
+        }
+        public ActionResult PercentageCropPercentageScale(string id, int px, int py, int pw, int ph, int p)
+        {
+            var cropped = processor.PercentageCrop(image, px, py, pw, ph);
+            var scaledCropped = processor.PercentageScaling(cropped, p);
+            return ImageActionResult(scaledCropped);
+        }
 
+        public ActionResult Full(string id)
+        {
+            return ImageActionResult(new Bitmap(image));
+        }
+        public ActionResult SizeCropNoScaling(string id, int x, int y, int w, int h)
+        {
+            var cropped = processor.SizeCrop(image, x, y, w, h);
+            return ImageActionResult(cropped);
+        }
+        public ActionResult PercentageCropNoScaling(string id, int px, int py, int pw, int ph)
+        {
+            var cropped = processor.PercentageCrop(image, px, py, pw, ph);
+            return ImageActionResult(cropped);
+        }
+        public ActionResult SizeScaleNoCropping(string id, int tw, int th, bool distorted)
+        {
+            var scaled= processor.SizeScaling(new Bitmap(image), tw, th, distorted);
+            return ImageActionResult(scaled);
+        }
+        public ActionResult PercentageScaleNoCropping(string id, int p)
+        {
+            var scaled = processor.PercentageScaling(new Bitmap(image), p);
+            return ImageActionResult(scaled);
+        }
     }
 }

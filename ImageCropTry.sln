@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageCropTry", "ImageCropTry\ImageCropTry.csproj", "{D0B37120-F9AA-4E16-B938-94197D51E359}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageServer", "ImageServer\ImageServer.csproj", "{7701FAC9-DE8C-42D9-B28F-3CDB278408D2}"
 EndProject
 Global
@@ -11,10 +9,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D0B37120-F9AA-4E16-B938-94197D51E359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0B37120-F9AA-4E16-B938-94197D51E359}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0B37120-F9AA-4E16-B938-94197D51E359}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0B37120-F9AA-4E16-B938-94197D51E359}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7701FAC9-DE8C-42D9-B28F-3CDB278408D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7701FAC9-DE8C-42D9-B28F-3CDB278408D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7701FAC9-DE8C-42D9-B28F-3CDB278408D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
