@@ -4,7 +4,8 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Web.Mvc;
 using ImageServer.Bussiness;
-using ImageServer.Bussiness.ImageEventArgs;
+using System.Web.Optimization;
+using System.Web.Routing;
 
 namespace ImageServer.Controllers
 {
@@ -15,10 +16,23 @@ namespace ImageServer.Controllers
         private readonly RotatedProcessor rotatedProcessor = new RotatedProcessor();
         private readonly ColorProcessor colorProcessor = new ColorProcessor();
         private readonly FormatProcessor formatProcessor = new FormatProcessor();
-        private readonly Image image = Image.FromFile(@"D:\wallpapers\july-10-photographydock-nocal-1920x1200.tif");
+        private readonly Image image = Image.FromFile(@"C:\photoes\wallpapers\mar-14-hello-march-cheep-cheep-cal-1920x1080.jpg");
 
-        private ActionResult RotateAndColorAndFormat(Image im, float rotate, string color, string format)
+        private ActionResult RotateAndColorAndFormat(Image im, float rotate, string colorformat)
         {
+            string color = "native";
+            string format = "jpg";
+            if (colorformat.Contains("."))
+            {
+                var parts = colorformat.Split('.');
+                if (!string.IsNullOrWhiteSpace(parts[0])) color = parts[0];
+                if (!string.IsNullOrWhiteSpace(parts[1])) format = parts[1];
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(colorformat)) color = colorformat;
+            }
+
             var bitmap = new Bitmap(im);
             if (Math.Abs(rotate) > 0.0001)
             {
@@ -39,60 +53,82 @@ namespace ImageServer.Controllers
             }
         }
 
-        //public ActionResult Index(BaseImageArgs args)
-        //{
-            
-        //}
+        private Bitmap Crope(Image im, string region)
+        {
+            //full ?
+            if (region == "full") return new Bitmap(im);
 
-
-        public ActionResult SizeCropSizeScale(string id, int x, int y, int w, int h, int tw, int th, bool distorted = false, float rotated = 0, string color = "", string format = "jpg")
-        {
-            var cropped = cropProcessor.SizeCrop(image, x, y, w, h);
-            var scaledCropped = scaleProcessor.SizeScaling(cropped, tw, th, distorted);
-            return RotateAndColorAndFormat(scaledCropped, rotated, color, format);
-        }
-        public ActionResult SizeCropPercentageScale(string id, int x, int y, int w, int h, int p, float rotated = 0, string color = "", string format = "jpg")
-        {
-            var cropped = cropProcessor.SizeCrop(image, x, y, w, h);
-            var scaledCropped = scaleProcessor.PercentageScaling(cropped, p);
-            return RotateAndColorAndFormat(scaledCropped, rotated, color, format);
-        }
-        public ActionResult PercentageCropSizeScale(string id, int px, int py, int pw, int ph, int tw, int th, bool distorted = false, float rotated = 0, string color = "", string format = "jpg")
-        {
-           var cropped = cropProcessor.PercentageCrop(image, px, py, pw, ph);
-           var scaledCropped = scaleProcessor.SizeScaling(cropped, tw, th, distorted);
-           return RotateAndColorAndFormat(scaledCropped, rotated, color, format);
-        }
-        public ActionResult PercentageCropPercentageScale(string id, int px, int py, int pw, int ph, int p, float rotated = 0, string color = "", string format = "jpg")
-        {
-            var cropped = cropProcessor.PercentageCrop(image, px, py, pw, ph);
-            var scaledCropped = scaleProcessor.PercentageScaling(cropped, p);
-            return RotateAndColorAndFormat(scaledCropped, rotated, color, format);
+            // percentage or coordinates cropp ?
+            var parts = region.Split(new[] { ',', ':' });
+            // region=pct:10,10,80,80
+            if (region.StartsWith("pct:"))
+            {
+                return cropProcessor.PercentageCrop(im, int.Parse(parts[1]), int.Parse(parts[2]), int.Parse(parts[3]), int.Parse(parts[4]));                
+            }
+            // region=0,10,100,200
+            return cropProcessor.SizeCrop(im, int.Parse(parts[0]), int.Parse(parts[1]), int.Parse(parts[2]), int.Parse(parts[3]));
         }
 
-        public ActionResult Full(string id, float rotated = 0, string color = "", string format = "jpg")
+        private Image Scale(Bitmap bitmap, string size)
         {
-            return RotateAndColorAndFormat(new Bitmap(image), rotated, color, format);
+            //full ?
+            if (size == "full") return bitmap;
+
+            // percentage or coordinates scale ?                     
+            var parts = size.Split(new[] { ',', ':' });
+            // size=pct:50
+            if (size.StartsWith("pct:"))
+            {
+                return scaleProcessor.PercentageScaling(bitmap, int.Parse(parts[1]));
+            }
+            // size=50,
+            if (string.IsNullOrEmpty(parts[1]))
+            {
+                return scaleProcessor.SizeScaling(bitmap, int.Parse(parts[0]), 0, false);
+            }
+            // size=,50
+            if (string.IsNullOrEmpty(parts[0]))
+            {
+                return scaleProcessor.SizeScaling(bitmap, 0, int.Parse(parts[1]), false);
+            }
+            // size=50,50
+            return scaleProcessor.SizeScaling(bitmap, int.Parse(parts[0]), int.Parse(parts[1]), true);            
         }
-        public ActionResult SizeCropNoScaling(string id, int x, int y, int w, int h, float rotated = 0, string color = "", string format = "jpg")
+
+        public ActionResult GetImageTile(string id, string region, string size, float rotation =0, string colorformat = "native.jpg")
         {
-            var cropped = cropProcessor.SizeCrop(image, x, y, w, h);
-            return RotateAndColorAndFormat(cropped, rotated, color, format);
+            var croppedImage = Crope(image, region);
+            var scaledImage = Scale(croppedImage, size);
+            var rotatedColorFormat = RotateAndColorAndFormat(scaledImage, rotation, colorformat);
+            return rotatedColorFormat;
         }
-        public ActionResult PercentageCropNoScaling(string id, int px, int py, int pw, int ph, float rotated = 0, string color = "", string format = "jpg")
+
+        public JsonResult Info(string id)
         {
-            var cropped = cropProcessor.PercentageCrop(image, px, py, pw, ph);
-            return RotateAndColorAndFormat(cropped, rotated, color, format);
-        }
-        public ActionResult SizeScaleNoCropping(string id, int tw, int th, bool distorted = false, float rotated = 0, string color = "", string format = "jpg")
-        {
-            var scaled = scaleProcessor.SizeScaling(new Bitmap(image), tw, th, distorted);
-            return RotateAndColorAndFormat(scaled, rotated, color, format);
-        }
-        public ActionResult PercentageScaleNoCropping(string id, int p, float rotated = 0, string color = "", string format = "jpg")
-        {
-            var scaled = scaleProcessor.PercentageScaling(new Bitmap(image), p);
-            return RotateAndColorAndFormat(scaled, rotated, color, format);
+            return Json(
+                new
+                {
+                    @context = "http://library.stanford.edu/iiif/image-api/1.1/context.json",
+                    @id = "http://localhost:2344/images/id",
+                    width = 1920,
+                    height = 1080,
+                    scale_factors = new[] { 1, 2, 4, 8, 16 },
+                    tile_width = 256,
+                    tile_height = 256,
+                    formats = new[] { "jpg", "png" },
+                    qualities = new[] { "native"},
+                    profile = "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0"
+                }, JsonRequestBehavior.AllowGet);
+            /*
+             * "formats": ["jpg", "png"],
+                "height": 1080,
+                "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0",
+                "qualities": ["native"],
+                "scale_factors": [1, 2, 4, 8, 16],
+                "tile_height": 256,
+                "tile_width": 256,
+                "width": 1920
+             */
         }
     }
 }
