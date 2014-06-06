@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
-namespace ImagesToDb
+namespace ImageServer.Bussiness.FromDb
 {
     public class DbWriter
     {
@@ -26,7 +26,7 @@ namespace ImagesToDb
                         var added = context.Tiles.Add(pt);
                         addedTiles.Add(added);
                     }
-                    context.SaveChangesAsync();
+                    context.SaveChanges();
                     foreach (var pt in addedTiles)
                     {
                         var tileImage = cropProcessor.SizeCrop(image, pt.XOffset, pt.YOffset, pt.Width, pt.Heigth);
@@ -38,6 +38,7 @@ namespace ImagesToDb
                             context.TilesContent.Add(ptc);
                         }
                     }
+                    context.SaveChanges();
                 }
                 
             }

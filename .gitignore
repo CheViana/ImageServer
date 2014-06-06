@@ -5,3 +5,5 @@ ImageServer/ImageServer.csproj.user
 ImageCropTry.v11.suo
 ImagesToDb/bin/
 ImagesToDb/obj/
+LoadImagesToDb/bin/
+LoadImagesToDb/obj/

@@ -82,7 +82,6 @@ D:\Projects\ImageServer\ImageServer\bin\System.Web.WebPages.Deployment.xml
 D:\Projects\ImageServer\ImageServer\bin\System.Web.WebPages.Razor.xml
 D:\Projects\ImageServer\ImageServer\obj\Debug\ImageServer.dll
 D:\Projects\ImageServer\ImageServer\obj\Debug\ImageServer.pdb
-D:\Projects\ImageServer\ImageServer\obj\Debug\ImageServer.csprojResolveAssemblyReference.cache
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\obj\Debug\ImageServer.csprojResolveAssemblyReference.cache
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageServer.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageServer.pdb
@@ -118,8 +117,6 @@ C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.WebPage
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.WebPages.Razor.xml
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\obj\Debug\ImageServer.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\obj\Debug\ImageServer.pdb
-D:\Projects\ImageServer\ImageServer\bin\EntityFramework.SqlServer.dll
 D:\Projects\ImageServer\ImageServer\bin\MvcInstaller.MVC4.dll
 D:\Projects\ImageServer\ImageServer\bin\Antlr3.Runtime.pdb
-D:\Projects\ImageServer\ImageServer\bin\EntityFramework.SqlServer.xml
 D:\Projects\ImageServer\ImageServer\bin\System.Web.Optimization.xml

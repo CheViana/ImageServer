@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Xml.XPath;
 
-namespace ImagesToDb
+namespace ImageServer.Bussiness.FromDb
 {
     public class DbTools
     {

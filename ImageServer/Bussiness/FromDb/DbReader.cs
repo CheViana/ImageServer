@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace ImagesToDb
+namespace ImageServer.Bussiness.FromDb
 {
     public class DbReader
     {

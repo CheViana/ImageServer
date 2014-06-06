@@ -43,11 +43,9 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
+   
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="MvcInstaller.MVC4">
       <HintPath>..\packages\MvcInstaller.MVC4.1.1.1.1\lib\net40\MvcInstaller.MVC4.dll</HintPath>
@@ -123,6 +121,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Bussiness\FromDb\DbReader.cs" />
+    <Compile Include="Bussiness\FromDb\DbTools.cs" />
+    <Compile Include="Bussiness\FromDb\DbWriter.cs" />
     <Compile Include="Bussiness\FromDb\PageTile.cs" />
     <Compile Include="Bussiness\Processing\ColorEnum.cs" />
     <Compile Include="Bussiness\Processing\CroppingProcessor.cs" />
@@ -194,7 +195,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="installer.config" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="MvcInstaller\ajax-loader.gif" />
     <Content Include="MvcInstaller\jquery-1.6.1.min.js" />

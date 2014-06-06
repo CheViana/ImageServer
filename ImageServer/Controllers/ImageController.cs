@@ -4,6 +4,8 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Web.Mvc;
 using ImageServer.Bussiness;
+using ImageServer.Bussiness.FromDb;
+using CroppingProcessor = ImageServer.Bussiness.CroppingProcessor;
 
 namespace ImageServer.Controllers
 {
@@ -95,8 +97,18 @@ namespace ImageServer.Controllers
 
         public ActionResult GetImageTile(string id, string region, string size, float rotation =0, string colorformat = "native.jpg")
         {
-            using (var image = Image.FromFile(Server.MapPath("/image/stars.tif")))
+            var wr = new DbWriter();
+            wr.PutImageToDb(123, 456, @"D:\wallpapers\stars.tif");
+
+            var dbReader = new DbReader();
+            var tuple = dbReader.GetImageFromDb("123-456", region);
+            if(tuple==null) throw new FileNotFoundException("not found image "+id);
+            region = tuple.Item2;
+            using (var memStream = new MemoryStream())
             {
+                var bytes = tuple.Item1.TileContent;
+                memStream.Write(bytes, 0, bytes.Length);
+                var image = Image.FromStream(memStream);
                 var croppedImage = Crope(image, region);
                 var scaledImage = Scale(croppedImage, size);
                 var rotatedColorFormat = RotateAndColorAndFormat(scaledImage, rotation, colorformat);
