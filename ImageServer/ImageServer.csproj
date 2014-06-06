@@ -123,14 +123,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Bussiness\ColorEnum.cs" />
-    <Compile Include="Bussiness\CroppingProcessor.cs" />
-    <Compile Include="Bussiness\ScalingProcessor.cs" />
-    <Compile Include="Bussiness\ColorProcessor.cs" />
-    <Compile Include="Bussiness\FormatProcessor.cs" />
+    <Compile Include="Bussiness\FromDb\PageTile.cs" />
+    <Compile Include="Bussiness\Processing\ColorEnum.cs" />
+    <Compile Include="Bussiness\Processing\CroppingProcessor.cs" />
+    <Compile Include="Bussiness\Processing\ScalingProcessor.cs" />
+    <Compile Include="Bussiness\Processing\ColorProcessor.cs" />
+    <Compile Include="Bussiness\Processing\FormatProcessor.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
-    <Compile Include="Bussiness\RotatedProcessor.cs" />
+    <Compile Include="Bussiness\Processing\RotatedProcessor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

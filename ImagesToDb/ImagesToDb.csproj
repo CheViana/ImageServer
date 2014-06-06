@@ -49,6 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CroppingProcessor.cs" />
+    <Compile Include="DbReader.cs" />
+    <Compile Include="DbTools.cs" />
+    <Compile Include="DbWriter.cs" />
     <Compile Include="PageTile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

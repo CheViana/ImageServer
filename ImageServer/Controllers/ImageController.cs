@@ -95,7 +95,7 @@ namespace ImageServer.Controllers
 
         public ActionResult GetImageTile(string id, string region, string size, float rotation =0, string colorformat = "native.jpg")
         {
-            using (var image = Image.FromFile(@"/image/stars.tif"))
+            using (var image = Image.FromFile(Server.MapPath("/image/stars.tif")))
             {
                 var croppedImage = Crope(image, region);
                 var scaledImage = Scale(croppedImage, size);
