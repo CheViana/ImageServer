@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 
@@ -17,21 +18,29 @@ namespace ImagesToDb
                 using (var context = new TilesContext())
                 {
                     var tiles = tools.AnalyzePageForTileCreation(image.Width,image.Height);
+                    var addedTiles = new List<PageTile>();
                     foreach (PageTile pt in tiles)
                     {
                         pt.BookId = bookId;
                         pt.PageId = pageId;
-                        var tile = cropProcessor.SizeCrop(image, pt.XOffset, pt.YOffset, pt.Width, pt.Heigth);
+                        var added = context.Tiles.Add(pt);
+                        addedTiles.Add(added);
+                    }
+                    context.SaveChanges();
+                    foreach (var pt in addedTiles)
+                    {
+                        var tileImage = cropProcessor.SizeCrop(image, pt.XOffset, pt.YOffset, pt.Width, pt.Heigth);
                         using (var memStream = new MemoryStream())
                         {
-                            tile.Save(memStream, ImageFormat.Jpeg);
+                            tileImage.Save(memStream, ImageFormat.Jpeg);
                             var bytes = memStream.ToArray();
-                            pt.TileContent = bytes;
-                            context.Tiles.Add(pt);
+                            var ptc = new PageTileContent() { InfoID = pt.ID, TileContent = bytes };
+                            context.TilesContent.Add(ptc);
                         }
                     }
-                    context.SaveChangesAsync();
+                    context.SaveChanges();
                 }
+                
             }
         }
     }
