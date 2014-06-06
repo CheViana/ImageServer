@@ -14,10 +14,7 @@ namespace ImagesToDb
             using (var context = new TilesContext())
             {
                 var tiles = context.Tiles.Where(t => t.BookId == bookId && t.PageId == pageId);
-                if (!tiles.Any()) return null;
-                var bestTile = tools.LookForClosestTile(tiles);
-                var updatedRegion = tools.UpdateRegionRequestParam(bestTile, region);
-                return new Tuple<PageTile, string>(bestTile,updatedRegion);
+                return !tiles.Any() ? null : tools.LookForClosestTile(tiles, region);
             }
         }
     }

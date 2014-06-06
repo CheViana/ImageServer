@@ -12,12 +12,23 @@ namespace ImagesToDb
 
         public Bitmap PercentageCrop(Image image, int px, int py, int pw, int ph)
         {
-            var finalWidth = (int) Math.Floor((pw/100.0) * image.Width);
-            var finalHeigth = (int) Math.Floor((ph / 100.0) * image.Height);
-            var xOffset = (int) Math.Floor(image.Width * (px / 100.0));
-            var yOffset = (int) Math.Floor(image.Height * (py / 100.0));
+            var finalWidth = DimentionFromPercToPx(image.Width, pw);
+            var finalHeigth = DimentionFromPercToPx(image.Height, ph);
+            var xOffset = OffsetFromPercToPx(image.Width,px);
+            var yOffset = OffsetFromPercToPx(image.Height,py);
             return TileFromSizes(image, finalHeigth, yOffset, finalWidth, xOffset);
         }
+
+        public static int OffsetFromPercToPx(int dimention, int perc)
+        {
+            return (int)Math.Floor(dimention * (perc / 100.0));
+        }
+
+        public static int DimentionFromPercToPx(int dimention, int perc)
+        {
+            return (int) Math.Floor((perc/100.0)*dimention);
+        }
+
 
         private static Bitmap TileFromSizes(Image image, int targetHeigth, int yOffset, int targetWidth, int xOffset)
         {

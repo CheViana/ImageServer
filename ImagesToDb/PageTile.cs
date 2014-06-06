@@ -19,6 +19,7 @@ namespace ImagesToDb
         public int XOffset {get;set;}
         public int YOffset {get;set;}
         public byte[] TileContent { get; set; }
+        public bool IsFull { get; set; }
     }
 
     public class TilesContext : DbContext 

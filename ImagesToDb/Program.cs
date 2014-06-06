@@ -11,8 +11,6 @@ namespace ImagesToDb
 {
     public class Program
     {
-        private static readonly Image image = Image.FromFile(@"C:\photoes\wallpapers\mar-14-hello-march-cheep-cheep-cal-1920x1080.jpg");
-
         public static void Main(string[] args)
         {
             //using (var memStream = new MemoryStream())
@@ -46,7 +44,38 @@ namespace ImagesToDb
             //        image.Save(@"C:\photoes\new.jpg", ImageFormat.Jpeg);
             //    }
             //}
-            
+
+            var tile1 = new PageTile() { IsFull = false, Width = 971, Heigth = 976, XOffset = 0, YOffset = 0 };
+            var tile2 = new PageTile() { IsFull = false, Width = 971, Heigth = 976, XOffset = 971, YOffset = 0 };
+            var tile3 = new PageTile() { IsFull = false, Width = 1942, Heigth = 1952, XOffset = 0, YOffset = 0 };
+
+            var tiles = new[]
+            {
+                new PageTile() {IsFull = true, Width = 3885, Heigth = 3904, XOffset = 0, YOffset = 0},
+
+                tile3,
+                new PageTile() {IsFull = false, Width = 1943, Heigth = 1952, XOffset = 1942, YOffset = 0},
+                new PageTile() {IsFull = false, Width = 1942, Heigth = 1952, XOffset = 0, YOffset = 1952},
+                new PageTile() {IsFull = false, Width = 1943, Heigth = 1952, XOffset = 1942, YOffset = 1952},
+
+                tile1,
+                tile2,
+                new PageTile() {IsFull = false, Width = 971, Heigth = 976, XOffset = 0, YOffset = 976},
+                new PageTile() {IsFull = false, Width = 971, Heigth = 976, XOffset = 971, YOffset = 976}
+            };
+
+
+
+            string region1 = "0,0,25,25";
+            string region2 = "975,10,25,25";
+            string region3 = "950,0,100,100";
+
+
+            var tools = new DbTools();
+            var tile1real = tools.LookForClosestTile(tiles, region1);
+            var tile2real = tools.LookForClosestTile(tiles, region2);
+            var tile3real = tools.LookForClosestTile(tiles, region3);
+
         }
     }
 }
