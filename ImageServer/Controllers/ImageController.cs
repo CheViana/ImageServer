@@ -4,8 +4,6 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Web.Mvc;
 using ImageServer.Bussiness;
-using System.Web.Optimization;
-using System.Web.Routing;
 
 namespace ImageServer.Controllers
 {
@@ -16,7 +14,7 @@ namespace ImageServer.Controllers
         private readonly RotatedProcessor rotatedProcessor = new RotatedProcessor();
         private readonly ColorProcessor colorProcessor = new ColorProcessor();
         private readonly FormatProcessor formatProcessor = new FormatProcessor();
-        private readonly Image image = Image.FromFile(@"C:\photoes\wallpapers\mar-14-hello-march-cheep-cheep-cal-1920x1080.jpg");
+        
 
         private ActionResult RotateAndColorAndFormat(Image im, float rotate, string colorformat)
         {
@@ -97,10 +95,13 @@ namespace ImageServer.Controllers
 
         public ActionResult GetImageTile(string id, string region, string size, float rotation =0, string colorformat = "native.jpg")
         {
-            var croppedImage = Crope(image, region);
-            var scaledImage = Scale(croppedImage, size);
-            var rotatedColorFormat = RotateAndColorAndFormat(scaledImage, rotation, colorformat);
-            return rotatedColorFormat;
+            using (var image = Image.FromFile(@"/image/stars.tif"))
+            {
+                var croppedImage = Crope(image, region);
+                var scaledImage = Scale(croppedImage, size);
+                var rotatedColorFormat = RotateAndColorAndFormat(scaledImage, rotation, colorformat);
+                return rotatedColorFormat;
+            }
         }
 
         public JsonResult Info(string id)
@@ -110,25 +111,15 @@ namespace ImageServer.Controllers
                 {
                     @context = "http://library.stanford.edu/iiif/image-api/1.1/context.json",
                     @id = "http://localhost:2344/images/id",
-                    width = 1920,
-                    height = 1080,
-                    scale_factors = new[] { 1, 2, 4, 8, 16 },
-                    tile_width = 256,
-                    tile_height = 256,
+                    width = 3885,
+                    height = 3904,
+                    scale_factors = new[] { 1, 2, 4, 8, 16, 32, 64 },
+                    tile_width = 512,
+                    tile_height = 512,
                     formats = new[] { "jpg", "png" },
                     qualities = new[] { "native"},
-                    profile = "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0"
+                    profile = "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2"
                 }, JsonRequestBehavior.AllowGet);
-            /*
-             * "formats": ["jpg", "png"],
-                "height": 1080,
-                "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level0",
-                "qualities": ["native"],
-                "scale_factors": [1, 2, 4, 8, 16],
-                "tile_height": 256,
-                "tile_width": 256,
-                "width": 1920
-             */
         }
     }
 }

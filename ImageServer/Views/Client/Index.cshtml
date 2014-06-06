@@ -3,21 +3,21 @@
 }
 
 <h2>Test</h2>
-<div id="openseadragon1" style="width: 800px; height: 600px;"></div>
+<div id="openseadragon1" style="width: 500px; height: 500px;"></div>
 <script src="/Scripts/openseadragon-bin-1.1.1/openseadragon.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         var iiifTileSOurce = new OpenSeadragon.IIIF1_1TileSource({
             "@@context": "http://library.stanford.edu/iiif/image-api/1.1/context.json",
-            "@@id": "http://localhost:2344/images/id",
+            "@@id": "http://localhost:64871/images/id",
             "formats": ["jpg"],
-            "height": 1080,
-            "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level1",
+            "height": 3904,
+            "profile": "http://library.stanford.edu/iiif/image-api/1.1/compliance.html#level2",
             "qualities": ["native"],
-            "scale_factors": [1, 2, 4, 8, 16],
-            "tile_height": 512,
-            "tile_width": 512,
-            "width": 1920
+            "scale_factors": [1, 2, 4, 8, 16, 32, 64],
+            "tile_height": 128,
+            "tile_width": 128,
+            "width": 3885
         });
         OpenSeadragon({
             id: "openseadragon1",

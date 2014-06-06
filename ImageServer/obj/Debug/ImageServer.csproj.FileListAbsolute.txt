@@ -66,7 +66,6 @@ D:\Projects\ImageServer\ImageServer\bin\System.Web.Http.dll
 D:\Projects\ImageServer\ImageServer\bin\System.Web.Http.WebHost.dll
 D:\Projects\ImageServer\ImageServer\bin\System.Web.Mvc.dll
 D:\Projects\ImageServer\ImageServer\bin\System.Web.Optimization.dll
-D:\Projects\ImageServer\ImageServer\bin\System.Web.Providers.dll
 D:\Projects\ImageServer\ImageServer\bin\System.Web.Razor.dll
 D:\Projects\ImageServer\ImageServer\bin\System.Web.WebPages.Deployment.dll
 D:\Projects\ImageServer\ImageServer\bin\System.Web.WebPages.dll
@@ -119,3 +118,8 @@ C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.WebPage
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.WebPages.Razor.xml
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\obj\Debug\ImageServer.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\obj\Debug\ImageServer.pdb
+D:\Projects\ImageServer\ImageServer\bin\EntityFramework.SqlServer.dll
+D:\Projects\ImageServer\ImageServer\bin\MvcInstaller.MVC4.dll
+D:\Projects\ImageServer\ImageServer\bin\Antlr3.Runtime.pdb
+D:\Projects\ImageServer\ImageServer\bin\EntityFramework.SqlServer.xml
+D:\Projects\ImageServer\ImageServer\bin\System.Web.Optimization.xml
