@@ -26,7 +26,7 @@ namespace ImagesToDb
                         var added = context.Tiles.Add(pt);
                         addedTiles.Add(added);
                     }
-                    context.SaveChanges();
+                    context.SaveChangesAsync();
                     foreach (var pt in addedTiles)
                     {
                         var tileImage = cropProcessor.SizeCrop(image, pt.XOffset, pt.YOffset, pt.Width, pt.Heigth);
@@ -38,7 +38,6 @@ namespace ImagesToDb
                             context.TilesContent.Add(ptc);
                         }
                     }
-                    context.SaveChanges();
                 }
                 
             }

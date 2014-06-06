@@ -28,12 +28,32 @@ namespace ImagesToDb
         //filling in x-yoffset,width-height only
         public IEnumerable<PageTile> AnalyzePageForTileCreation(int width, int height)
         {
-            //full tile
-            yield return new PageTile() {Heigth = height, Width = width, XOffset = 0, YOffset = 0};
+            var tiles = new List<PageTile>
+            {
+                //full tile
+                new PageTile() {IsFull = true, Heigth = height, Width = width, XOffset = 0, YOffset = 0}
+            };
+            AnalyzeRec(tiles,width,height,0,0);
+            return tiles;
+        }
 
-            //dividing image like +  and then additionally create centered tile and hor/vert centered tiles
-
-            //return new PageTile[1];
+        private void AnalyzeRec(ICollection<PageTile> pageTiles, int width, int height,int x, int y)
+        {
+            if (width > smallestRegion & height > smallestRegion)
+            {
+                var width1 = width/2;
+                var width2 = width - width1;
+                var height1 = height/2;
+                var height2 = height - height1;
+                pageTiles.Add(new PageTile() { IsFull = false, Width = width1, Heigth = height1, XOffset = x, YOffset = y });
+                pageTiles.Add(new PageTile() { IsFull = false, Width = width2, Heigth = height1, XOffset = x+width1, YOffset = y });
+                pageTiles.Add(new PageTile() { IsFull = false, Width = width1, Heigth = height2, XOffset = x, YOffset = y + height1 });
+                pageTiles.Add(new PageTile() { IsFull = false, Width = width2, Heigth = height2, XOffset = x + width1, YOffset = y + height1 });
+                AnalyzeRec(pageTiles, width1, height1, x, y);
+                AnalyzeRec(pageTiles, width2, height1, x + width1, y);
+                AnalyzeRec(pageTiles, width1, height2, x, y + height1);
+                AnalyzeRec(pageTiles, width2, height2, x + width1, y + height1);
+            }
         }
 
         public Tuple<PageTile,string> LookForClosestTile(IEnumerable<PageTile> allTiles, string region)
