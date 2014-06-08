@@ -53,7 +53,7 @@ namespace ImageServer.Controllers
         {
             var cropProcessor = new CroppingProcessor();
             //full ?
-            if (region == "full") return new Bitmap(im);
+            if (region == "full") return (Bitmap)(im);
 
             // percentage or coordinates cropp ?
             var parts = region.Split(new[] { ',', ':' });
@@ -96,16 +96,15 @@ namespace ImageServer.Controllers
         public ActionResult GetImageTile(string id, string region, string size, float rotation =0, string colorformat = "native.jpg")
         {
             var dbReader = new DbReader();
-            var tuple = dbReader.GetImageFromDb("129-459", region);
-            if(tuple==null) throw new FileNotFoundException("not found image "+id);
-            region = tuple.Item2;
+            var result = dbReader.GetImageFromDb("131-461", region, size); //120-453
+            
             using (var memStream = new MemoryStream())
             {
-                var bytes = tuple.Item1.TileContent;
+                var bytes = result.Content.TileContent;
                 memStream.Write(bytes, 0, bytes.Length);
                 var image = Image.FromStream(memStream);
-                var croppedImage = Crope(image, region);
-                var scaledImage = Scale(croppedImage, size);
+                var croppedImage = Crope(image, result.RegionNew);
+                var scaledImage = Scale(croppedImage, result.ScalingNew);
                 var rotatedColorFormat = RotateAndColorAndFormat(scaledImage, rotation, colorformat);
                 return rotatedColorFormat;
             }

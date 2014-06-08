@@ -15,6 +15,9 @@ namespace ImageServer.Bussiness.FromDb
         public int XOffset {get;set;}
         public int YOffset {get;set;}
         public bool IsFull { get; set; }
+
+        public bool IsScaled { get; set; }
+        public int DestWidth { get; set; }
     }
 
     public class PageTileContent

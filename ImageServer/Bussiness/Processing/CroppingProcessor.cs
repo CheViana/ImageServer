@@ -31,6 +31,9 @@ namespace ImageServer.Bussiness
 
         private static Bitmap TileFromSizes(Image image, int targetHeigth, int yOffset, int targetWidth, int xOffset)
         {
+            if (xOffset == 0 && yOffset == 0 && image.Height == targetHeigth && image.Width == targetWidth)
+                return (Bitmap)image;
+
             if (image.Height < targetHeigth + yOffset) targetHeigth = image.Height - yOffset;
             if (image.Width < targetWidth + xOffset) targetWidth = image.Width - xOffset;
 

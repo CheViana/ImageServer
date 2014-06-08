@@ -37,6 +37,8 @@ namespace ImageServer.Bussiness.FromDb
 
         public IEnumerable<PageTileInfo> GenerateTilesInfo(int width, int height)
         {
+            var scaleProc = new ScalingProcessor();
+
             yield return //full tile
                 new PageTileInfo() {IsFull = true, Heigth = height, Width = width, XOffset = 0, YOffset = 0};
 
@@ -57,6 +59,19 @@ namespace ImageServer.Bussiness.FromDb
                     {
                         yield return
                             new PageTileInfo() { XOffset = x, YOffset = y, Width = minPiece * 2, Heigth = minPiece * 2 };
+                       
+                        //adding scaled version too
+
+                        yield return
+                            new PageTileInfo()
+                            {
+                                XOffset = x,
+                                YOffset = y,
+                                Width = minPiece * 2,
+                                Heigth = minPiece * 2,
+                                IsScaled = true,
+                                DestWidth = minPiece
+                            };
                     }
                     else continue;
 
@@ -64,6 +79,29 @@ namespace ImageServer.Bussiness.FromDb
                     {
                         yield return
                             new PageTileInfo() { XOffset = x, YOffset = y, Width = minPiece * 4, Heigth = minPiece * 4 };
+                        //adding scaled version too - 512
+                        yield return
+                            new PageTileInfo()
+                            {
+                                XOffset = x,
+                                YOffset = y,
+                                Width = minPiece * 4,
+                                Heigth = minPiece * 4,
+                                IsScaled = true,
+                                DestWidth = minPiece * 2
+                            };
+
+                        //adding scaled version too - 256
+                        yield return
+                            new PageTileInfo()
+                            {
+                                XOffset = x,
+                                YOffset = y,
+                                Width = minPiece * 4,
+                                Heigth = minPiece * 4,
+                                IsScaled = true,
+                                DestWidth = minPiece
+                            };
                     }
                 }
             }
@@ -148,6 +186,14 @@ namespace ImageServer.Bussiness.FromDb
 
         private static void GetDimsInPx(string region, int width, int height, out int x, out int y, out int w, out int h)
         {
+            if (region == "full")
+            {
+                x = 0;
+                y = 0;
+                w = width;
+                h = height;
+                return;
+            }
             var regionParts = region.Split(new[] {',', ':'});
             if (region.StartsWith("pct:"))
             {
@@ -176,8 +222,38 @@ namespace ImageServer.Bussiness.FromDb
             int x, y, h, w;
             GetDimsInPx(oldRegion, width, height, out x, out y, out w, out h);
 
+            //if we have exact region in tile
+            if (tile.Heigth == h && tile.Width == w && tile.XOffset == x && tile.YOffset == y)
+            {
+                return "full";
+            }
+
             //old w and h remains, but x and y are going to get new values
             return (x - tile.XOffset) + "," + (y - tile.YOffset) + "," + w + "," + h;
+        }
+
+        public Tuple<PageTileInfo, string,string> LookForClosestTileScaled(IEnumerable<PageTileInfo> tiles, string region, int scalingWidth)
+        {
+            var allTIles = tiles.ToArray();
+            var fullTile = allTIles.First(t => t.IsFull);
+
+            //looking for tiles that our region fits in
+            var fittedTiles = allTIles.Where(pageTile => RegionFitsInTile(pageTile, region, fullTile.Width, fullTile.Heigth)).ToList();
+            int x, y, w, h;
+            GetDimsInPx(region, fullTile.Width, fullTile.Heigth, out x, out y, out w, out h);
+            var fittedTile =
+                fittedTiles.FirstOrDefault(
+                    ft =>
+                        ft.IsScaled & ft.DestWidth == scalingWidth && ft.XOffset == x && ft.YOffset == y &&
+                        ft.Width == w && ft.Heigth == h);
+
+            if (fittedTile != null)
+            {
+                return new Tuple<PageTileInfo, string, string>(fittedTile,
+                    UpdateRegionRequestParam(fittedTile, region, fittedTile.Width, fittedTile.Heigth), "0,");
+            }
+            var tuple = LookForClosestTile(allTIles, region);
+            return new Tuple<PageTileInfo, string, string>(tuple.Item1,tuple.Item2,scalingWidth+",");
         }
     }
 }

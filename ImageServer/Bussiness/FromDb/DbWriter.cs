@@ -10,6 +10,8 @@ namespace ImageServer.Bussiness.FromDb
         
         private DbTools tools = new DbTools();
         private readonly CroppingProcessor cropProcessor = new CroppingProcessor();
+        private readonly ScalingProcessor scaleProcessor = new ScalingProcessor();
+
 
         public void PutImageToDb(int bookId, int pageId, string path)
         {
@@ -17,7 +19,7 @@ namespace ImageServer.Bussiness.FromDb
             {
                 using (var context = new TilesContext())
                 {
-                    var tiles = tools.AnalyzePageForTileCreation(image.Width,image.Height);
+                    var tiles = tools.GenerateTilesInfo(image.Width,image.Height);
                     var addedTiles = new List<PageTileInfo>();
                     foreach (PageTileInfo pt in tiles)
                     {
@@ -29,7 +31,12 @@ namespace ImageServer.Bussiness.FromDb
                     context.SaveChanges();
                     foreach (var pt in addedTiles)
                     {
-                        var tileImage = cropProcessor.SizeCrop(image, pt.XOffset, pt.YOffset, pt.Width, pt.Heigth);
+                        Image tileImage = cropProcessor.SizeCrop(image, pt.XOffset, pt.YOffset, pt.Width, pt.Heigth);
+                        if (pt.IsScaled)
+                        {
+                            var scaled = scaleProcessor.SizeScaling((Bitmap)tileImage, pt.DestWidth, 0, false);
+                            tileImage = scaled;
+                        }
                         using (var memStream = new MemoryStream())
                         {
                             tileImage.Save(memStream, ImageFormat.Jpeg);
