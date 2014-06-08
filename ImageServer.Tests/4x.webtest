@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WebTest1" Id="3b95c05e-f981-4df9-8745-107d5b80af64" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.2470d840-6724-4bd6-b223-60976270f07a.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="0089c345-c508-4d8d-8bf3-6fb36ba39006" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2048,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2048,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="aecd8728-2754-4121-82ff-efe24562cfcd" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2048,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2048,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="3457a8d0-d667-445b-b2d3-5607511b2ddb" Version="1.1" Url="http://localhost:2344/images/id/1536,2048,256,256/256,/0/native.jpg" ThinkTime="18" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="8f580932-eb15-4217-b4bf-0c33cafd1547" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2304,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2304,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="96cf03a6-3cfa-47b1-b2dd-c1d264e44a59" Version="1.1" Url="http://localhost:2344/images/id/1536,2304,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="3018ea1b-8b63-49e1-a6f1-e71128b0fa12" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,2048,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,2048,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="b907820d-5170-4dcd-8799-28bfad9c1e34" Version="1.1" Url="http://localhost:2344/images/id/1280,2048,256,256/256,/0/native.jpg" ThinkTime="8" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="92934efd-6bdb-4806-a918-cf5eb62c96ab" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,2048,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,2048,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="69447799-ebf6-4341-abc9-df6dde37df35" Version="1.1" Url="http://localhost:2344/images/id/1792,2048,256,256/256,/0/native.jpg" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="51753bce-d967-412e-8f64-3be1124b821f" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,2304,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,2304,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="3576e143-ad08-4c98-9541-4759b438780f" Version="1.1" Url="http://localhost:2344/images/id/1280,2304,256,256/256,/0/native.jpg" ThinkTime="12" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="ae95a9a6-c782-4d2f-b232-b1afb037321e" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,2304,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,2304,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="728810cf-cff4-4035-8543-e479a4ba8e69" Version="1.1" Url="http://localhost:2344/images/id/1792,2304,256,256/256,/0/native.jpg" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="141e3cb6-59fc-4d38-b2ab-b6ea3b5453b9" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,1792,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,1792,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="dcbde195-cd89-48d4-a81a-e4ca6169ac95" Version="1.1" Url="http://localhost:2344/images/id/1536,1792,256,256/256,/0/native.jpg" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="5afefead-dbc3-48bd-8243-2649a459f02d" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,1792,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,1792,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="b4271302-20a7-42f9-90e3-8e5d2950f6a3" Version="1.1" Url="http://localhost:2344/images/id/1280,1792,256,256/256,/0/native.jpg" ThinkTime="8" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="02185bae-0c5c-4eda-90a5-25db20871a7f" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,1792,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,1792,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="5107a4c6-4ced-4916-b320-b4cdefc4b3e2" Version="1.1" Url="http://localhost:2344/images/id/1792,1792,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="b617de47-63fe-4b63-9ff9-37df0fc81f26" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2560,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,2560,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="e0f6f96b-486b-48e4-b1cb-3eebc4f6e436" Version="1.1" Url="http://localhost:2344/images/id/1536,2560,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="f81aca47-4780-4e02-a545-7d4a82e795fa" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,2560,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,2560,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="b7988f5f-8ef8-453e-be39-689d3f5b1fef" Version="1.1" Url="http://localhost:2344/images/id/1280,2560,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="03a860df-d798-4654-999c-38ddce7541e7" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,2560,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,2560,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="19b8e1b2-3418-4d35-bf67-7c959ebd699f" Version="1.1" Url="http://localhost:2344/images/id/1792,2560,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="ff18bc85-a92c-4ebe-a517-80febad0ac79" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,2048,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,2048,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="9f6860cf-e88f-40d1-873c-6c64f9501cda" Version="1.1" Url="http://localhost:2344/images/id/1024,2048,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="273f202a-c6b3-4c31-b5c6-e5f271e3f9fe" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,2048,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,2048,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="f1eebe86-ad42-4c45-a2ea-b572a698207d" Version="1.1" Url="http://localhost:2344/images/id/2048,2048,256,256/256,/0/native.jpg" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="b8f746b1-0174-4e9d-8e24-d24662c43bf2" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,2304,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,2304,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="3a7881e2-bb6a-4112-b130-6b98fb277482" Version="1.1" Url="http://localhost:2344/images/id/1024,2304,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="8cc2271e-e361-4ffe-a88e-057aed28ae2c" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,2304,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,2304,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="65ac3bab-5473-43fe-b459-de185df07de2" Version="1.1" Url="http://localhost:2344/images/id/2048,2304,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="2f89d12f-f7a2-4b01-bf9c-569c8c53ff2d" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,1536,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1536,1536,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="4e1c419a-c9b7-49c8-9bde-fd57d5dfa16d" Version="1.1" Url="http://localhost:2344/images/id/1536,1536,256,256/256,/0/native.jpg" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="a5fa1f18-39e9-424d-a606-9e0c224d110b" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,1792,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,1792,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="9b5fc033-0035-4e31-bb69-5f0e978f1735" Version="1.1" Url="http://localhost:2344/images/id/2048,1792,256,256/256,/0/native.jpg" ThinkTime="9" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="ab54507a-ac85-453c-b171-872a9b1856b5" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,1792,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,1792,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="b41840d4-a41f-4c22-885c-de192410c7fa" Version="1.1" Url="http://localhost:2344/images/id/1024,1792,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="1c3555a7-dbc0-4b8d-8ad5-9f9aadf93a6a" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,1536,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1280,1536,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="fa056485-2fd2-4bfe-8db1-9a02b24dcfcb" Version="1.1" Url="http://localhost:2344/images/id/1280,1536,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="4826ecd7-8086-485f-a9b6-646bd015297b" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,1536,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1792,1536,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="08f66113-0648-4e40-ba91-77b93c5007f3" Version="1.1" Url="http://localhost:2344/images/id/1792,1536,256,256/256,/0/native.jpg" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="22cf7097-853c-4672-99b1-97e1f1343069" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,2560,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,2560,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="d84fb327-a08c-4290-a417-0958e11d88eb" Version="1.1" Url="http://localhost:2344/images/id/1024,2560,256,256/256,/0/native.jpg" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="96ee471a-cb42-4bc0-b83b-fd2e0f580069" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,2560,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,2560,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="d664d404-fdbc-44eb-bd12-a09444bf8c7b" Version="1.1" Url="http://localhost:2344/images/id/2048,2560,256,256/256,/0/native.jpg" ThinkTime="6" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="4028f9da-f96d-4a32-b198-456afd0febdb" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,1536,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F1024,1536,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="7b7696f4-ac06-4b27-870d-47ff7defbaf8" Version="1.1" Url="http://localhost:2344/images/id/1024,1536,256,256/256,/0/native.jpg" ThinkTime="7" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="1e062836-a4b9-466f-9884-e1c98dd4a748" Version="1.1" Url="http://suggest.yandex.net/suggest-ff.cgi" ThinkTime="1" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <QueryStringParameters>
+        <QueryStringParameter Name="part" Value="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,1536,256,256%2F256,%2F0%2Fnative.jpg" RecordedValue="http%3A%2F%2Flocalhost%3A2344%2Fimages%2Fid%2F2048,1536,256,256%2F256,%2F0%2Fnative.jpg" CorrelationBinding="" UrlEncode="False" UseToGroupResults="False" />
+      </QueryStringParameters>
+    </Request>
+    <Request Method="GET" Guid="ead8cfe3-286a-4ea9-a8ad-f9abae1168e4" Version="1.1" Url="http://localhost:2344/images/id/2048,1536,256,256/256,/0/native.jpg" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="Windows-1252" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+  </Items>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response URL" Description="Validates that the response URL after redirects are followed is the same as the recorded response URL.  QueryString parameters are ignored." Level="Low" ExectuionOrder="BeforeDependents" />
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>

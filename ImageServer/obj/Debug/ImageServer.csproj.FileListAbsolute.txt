@@ -87,7 +87,6 @@ C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageServer.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageServer.pdb
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\Antlr3.Runtime.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\EntityFramework.dll
-C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\EntityFramework.SqlServer.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\Microsoft.Web.Infrastructure.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\MvcInstaller.MVC4.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\Newtonsoft.Json.dll
@@ -103,10 +102,8 @@ C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.WebPage
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\WebGrease.dll
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\Antlr3.Runtime.pdb
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\EntityFramework.xml
-C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\EntityFramework.SqlServer.xml
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\Newtonsoft.Json.xml
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.Optimization.xml
-C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\Microsoft.Web.Infrastructure.xml
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Net.Http.Formatting.xml
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.Http.xml
 C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\System.Web.Http.WebHost.xml
@@ -120,3 +117,10 @@ C:\documents\projects\imserv-repo\ImageServer\ImageServer\obj\Debug\ImageServer.
 D:\Projects\ImageServer\ImageServer\bin\MvcInstaller.MVC4.dll
 D:\Projects\ImageServer\ImageServer\bin\Antlr3.Runtime.pdb
 D:\Projects\ImageServer\ImageServer\bin\System.Web.Optimization.xml
+C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageServer.dll.config
+C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\EntityFramework.SqlServer.dll
+C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\EntityFramework.SqlServer.xml
+C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageResizer.dll
+C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageResizer.Mvc.dll
+C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageResizer.xml
+C:\documents\projects\imserv-repo\ImageServer\ImageServer\bin\ImageResizer.Mvc.xml

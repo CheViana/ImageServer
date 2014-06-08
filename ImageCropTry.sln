@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageServer", "ImageServer\ImageServer.csproj", "{7701FAC9-DE8C-42D9-B28F-3CDB278408D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoadImagesToDb", "LoadImagesToDb\LoadImagesToDb.csproj", "{69C1F79D-1CBC-4C9B-AA1E-1ABE7CDDA356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageServer.Tests", "ImageServer.Tests\ImageServer.Tests.csproj", "{01AD5D7C-457D-4273-81C1-3584B3017464}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +23,10 @@ Global
 		{69C1F79D-1CBC-4C9B-AA1E-1ABE7CDDA356}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69C1F79D-1CBC-4C9B-AA1E-1ABE7CDDA356}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69C1F79D-1CBC-4C9B-AA1E-1ABE7CDDA356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01AD5D7C-457D-4273-81C1-3584B3017464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01AD5D7C-457D-4273-81C1-3584B3017464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01AD5D7C-457D-4273-81C1-3584B3017464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01AD5D7C-457D-4273-81C1-3584B3017464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

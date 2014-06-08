@@ -11,15 +11,11 @@ namespace ImageServer.Controllers
 {
     public class ImageController : Controller
     {
-        private readonly CroppingProcessor cropProcessor = new CroppingProcessor();
-        private readonly ScalingProcessor scaleProcessor = new ScalingProcessor();
-        private readonly RotatedProcessor rotatedProcessor = new RotatedProcessor();
-        private readonly ColorProcessor colorProcessor = new ColorProcessor();
-        private readonly FormatProcessor formatProcessor = new FormatProcessor();
-        
-
         private ActionResult RotateAndColorAndFormat(Image im, float rotate, string colorformat)
         {
+            var rotatedProcessor = new RotatedProcessor();
+            var colorProcessor = new ColorProcessor();
+            var formatProcessor = new FormatProcessor();
             string color = "native";
             string format = "jpg";
             if (colorformat.Contains("."))
@@ -55,6 +51,7 @@ namespace ImageServer.Controllers
 
         private Bitmap Crope(Image im, string region)
         {
+            var cropProcessor = new CroppingProcessor();
             //full ?
             if (region == "full") return new Bitmap(im);
 
@@ -71,6 +68,7 @@ namespace ImageServer.Controllers
 
         private Image Scale(Bitmap bitmap, string size)
         {
+            var scaleProcessor = new ScalingProcessor();
             //full ?
             if (size == "full") return bitmap;
 
@@ -97,11 +95,8 @@ namespace ImageServer.Controllers
 
         public ActionResult GetImageTile(string id, string region, string size, float rotation =0, string colorformat = "native.jpg")
         {
-            var wr = new DbWriter();
-            wr.PutImageToDb(123, 456, @"D:\wallpapers\stars.tif");
-
             var dbReader = new DbReader();
-            var tuple = dbReader.GetImageFromDb("123-456", region);
+            var tuple = dbReader.GetImageFromDb("129-459", region);
             if(tuple==null) throw new FileNotFoundException("not found image "+id);
             region = tuple.Item2;
             using (var memStream = new MemoryStream())

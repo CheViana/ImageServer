@@ -6,7 +6,8 @@ namespace ImageServer.Bussiness.FromDb
 {
     public class DbTools
     {
-        private int smallestRegion = 512;
+        
+        
 
         private static int GetStringPart(string word, int index)
         {
@@ -23,29 +24,92 @@ namespace ImageServer.Bussiness.FromDb
             return GetStringPart(id, 1);
         }
         //filling in x-yoffset,width-height only
-        public IEnumerable<PageTile> AnalyzePageForTileCreation(int width, int height)
+        public IEnumerable<PageTileInfo> AnalyzePageForTileCreation(int width, int height)
         {
-            var tiles = new List<PageTile>
+            var tiles = new List<PageTileInfo>
             {
                 //full tile
-                new PageTile() {IsFull = true, Heigth = height, Width = width, XOffset = 0, YOffset = 0}
+                new PageTileInfo() {IsFull = true, Heigth = height, Width = width, XOffset = 0, YOffset = 0}
             };
             AnalyzeRec(tiles,width,height,0,0);
             return tiles;
         }
 
-        private void AnalyzeRec(ICollection<PageTile> pageTiles, int width, int height,int x, int y)
+        public IEnumerable<PageTileInfo> GenerateTilesInfo(int width, int height)
         {
-            if (width > smallestRegion & height > smallestRegion)
+            yield return //full tile
+                new PageTileInfo() {IsFull = true, Heigth = height, Width = width, XOffset = 0, YOffset = 0};
+
+            const int minPiece = 256;
+
+            //counting widthMain - it's < width, but minPiece can fit there int amount of times
+            int widthMain = (width / minPiece) * minPiece;
+            int heightMain = (height / minPiece) * minPiece;
+
+            //starting from 0,0 creating squares 256x256, 512x512, 1024x1024, etc
+            for (int x = 0; x < widthMain; x += minPiece)
+            {
+                for (int y = 0; y < heightMain; y += minPiece)
+                {
+                    yield return new PageTileInfo() { XOffset = x, YOffset = y, Width = minPiece, Heigth = minPiece };
+
+                    if (x % (minPiece * 2) == 0 && y % (minPiece * 2) == 0)
+                    {
+                        yield return
+                            new PageTileInfo() { XOffset = x, YOffset = y, Width = minPiece * 2, Heigth = minPiece * 2 };
+                    }
+                    else continue;
+
+                    if (x % (minPiece * 4) == 0 && y % (minPiece * 4) == 0)
+                    {
+                        yield return
+                            new PageTileInfo() { XOffset = x, YOffset = y, Width = minPiece * 4, Heigth = minPiece * 4 };
+                    }
+                }
+            }
+
+            //dealing with rest border pieces in image
+            //corner piece
+            if (heightMain == height && widthMain == width) yield break;
+            if (heightMain != height && widthMain != width)
+            {
+                yield return new PageTileInfo() { XOffset = widthMain, YOffset = heightMain, Width = width - widthMain, Heigth = height - heightMain };
+            }
+            //bottom pieces
+            if (height != heightMain)
+            {
+                var diff = height - heightMain;
+                for (int x = 0; x < widthMain; x += minPiece)
+                {
+                    yield return
+                        new PageTileInfo() { XOffset = x, YOffset = heightMain, Width = minPiece, Heigth = diff };
+                }
+            }
+            //right side pieces
+            if (width != widthMain)
+            {
+                var diff = width - widthMain;
+                for (int y = 0; y < heightMain; y += minPiece)
+                {
+                    yield return
+                        new PageTileInfo() { XOffset = widthMain, YOffset = y, Width = diff, Heigth = minPiece };
+                }
+            }
+        }
+
+        private void AnalyzeRec(ICollection<PageTileInfo> pageTiles, int width, int height,int x, int y)
+        {
+            const int minPiece = 256;
+            if (width > minPiece & height > minPiece)
             {
                 var width1 = width/2;
                 var width2 = width - width1;
                 var height1 = height/2;
                 var height2 = height - height1;
-                pageTiles.Add(new PageTile() { IsFull = false, Width = width1, Heigth = height1, XOffset = x, YOffset = y });
-                pageTiles.Add(new PageTile() { IsFull = false, Width = width2, Heigth = height1, XOffset = x+width1, YOffset = y });
-                pageTiles.Add(new PageTile() { IsFull = false, Width = width1, Heigth = height2, XOffset = x, YOffset = y + height1 });
-                pageTiles.Add(new PageTile() { IsFull = false, Width = width2, Heigth = height2, XOffset = x + width1, YOffset = y + height1 });
+                pageTiles.Add(new PageTileInfo() { IsFull = false, Width = width1, Heigth = height1, XOffset = x, YOffset = y });
+                pageTiles.Add(new PageTileInfo() { IsFull = false, Width = width2, Heigth = height1, XOffset = x+width1, YOffset = y });
+                pageTiles.Add(new PageTileInfo() { IsFull = false, Width = width1, Heigth = height2, XOffset = x, YOffset = y + height1 });
+                pageTiles.Add(new PageTileInfo() { IsFull = false, Width = width2, Heigth = height2, XOffset = x + width1, YOffset = y + height1 });
                 AnalyzeRec(pageTiles, width1, height1, x, y);
                 AnalyzeRec(pageTiles, width2, height1, x + width1, y);
                 AnalyzeRec(pageTiles, width1, height2, x, y + height1);
@@ -53,12 +117,12 @@ namespace ImageServer.Bussiness.FromDb
             }
         }
 
-        public Tuple<PageTile,string> LookForClosestTile(IEnumerable<PageTile> allTiles, string region)
+        public Tuple<PageTileInfo,string> LookForClosestTile(IEnumerable<PageTileInfo> allTiles, string region)
         {
-            if (region == "full") return new Tuple<PageTile, string>(allTiles.First(t => t.IsFull),region);
+            if (region == "full") return new Tuple<PageTileInfo, string>(allTiles.First(t => t.IsFull),region);
 
             var tiles = allTiles.ToArray();
-            if (tiles.Count() == 1) return new Tuple<PageTile, string>(tiles.ElementAt(0),region);
+            if (tiles.Count() == 1) return new Tuple<PageTileInfo, string>(tiles.ElementAt(0),region);
 
             var fullTile = tiles.First(t => t.IsFull);
 
@@ -69,10 +133,10 @@ namespace ImageServer.Bussiness.FromDb
             var smallestDims = fittedTiles.Min(t => t.Width * t.Heigth);
             var smallestTile = fittedTiles.First(t => t.Width * t.Heigth == smallestDims);
             var newRegion = UpdateRegionRequestParam(smallestTile, region, fullTile.Width, fullTile.Heigth);
-            return new Tuple<PageTile, string>(smallestTile, newRegion);
+            return new Tuple<PageTileInfo, string>(smallestTile, newRegion);
         }
 
-        private bool RegionFitsInTile(PageTile pageTile, string region, int width, int height)
+        private bool RegionFitsInTile(PageTileInfo pageTile, string region, int width, int height)
         {
             int x, y, h, w;
             GetDimsInPx(region, width, height, out x, out y, out w, out h);
@@ -106,7 +170,7 @@ namespace ImageServer.Bussiness.FromDb
         }
 
 
-        private string UpdateRegionRequestParam(PageTile tile, string oldRegion, int width, int height)
+        private string UpdateRegionRequestParam(PageTileInfo tile, string oldRegion, int width, int height)
         {
             if (oldRegion == "full") return "full";
             int x, y, h, w;

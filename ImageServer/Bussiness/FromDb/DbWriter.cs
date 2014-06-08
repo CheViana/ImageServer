@@ -18,8 +18,8 @@ namespace ImageServer.Bussiness.FromDb
                 using (var context = new TilesContext())
                 {
                     var tiles = tools.AnalyzePageForTileCreation(image.Width,image.Height);
-                    var addedTiles = new List<PageTile>();
-                    foreach (PageTile pt in tiles)
+                    var addedTiles = new List<PageTileInfo>();
+                    foreach (PageTileInfo pt in tiles)
                     {
                         pt.BookId = bookId;
                         pt.PageId = pageId;

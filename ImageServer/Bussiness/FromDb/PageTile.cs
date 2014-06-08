@@ -1,9 +1,12 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace ImageServer.Bussiness.FromDb
 {
-    public class PageTile
+    public class PageTileInfo
     {
+        [Key]
         public int ID { get; set; }
         public int BookId { get; set; }
         public int PageId { get; set; }
@@ -16,15 +19,34 @@ namespace ImageServer.Bussiness.FromDb
 
     public class PageTileContent
     {
-        public int ID { get; set; }
+        [Key]
         public int InfoID { get; set; }
         public byte[] TileContent { get; set; }
     }
 
     public class TilesContext : DbContext 
     {
-        public DbSet<PageTile> Tiles { get; set; }
+        public TilesContext()
+            : base("TilesContext")
+        {
+        }
+
+        public DbSet<PageTileInfo> Tiles { get; set; }
         public DbSet<PageTileContent> TilesContent { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
+    }
+
+    public class TilesInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<TilesContext>
+    {
+        protected override void Seed(TilesContext context)
+        {
+            //var wr = new DbWriter();
+            //wr.PutImageToDb(120, 453, @"C:\photoes\page.png");
+        }
     }
 
 }
